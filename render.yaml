@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: sjshahco-website
+    runtime: static
+    # The whole site is plain HTML/CSS at the repo root — nothing to build.
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
