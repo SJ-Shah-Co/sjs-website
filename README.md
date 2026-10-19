@@ -1,26 +1,33 @@
 # SJ Shah &amp; Co. — Corporate Website
 
-Static corporate website for **SJ Shah &amp; Co LLC**, a Texas limited liability company that
-develops and operates technology and media properties and provides IT consulting.
+Static corporate website for **SJ Shah &amp; Co LLC**, a Texas limited liability company
+(established 2013) that develops and operates technology and media properties and provides
+consulting through its SOHUM.agency trade name.
 
-Plain HTML + CSS. No build step, no dependencies.
+Plain HTML + CSS + a small vanilla JS file. No build step, no dependencies.
 
 ## Structure
 
 ```
-index.html         Landing page (hero, what we do, featured products, CTA)
-products.html      Full portfolio + SOHUM consulting
-contact.html       Contact info + mailto-based contact form
+index.html         Home: hero, company facts, featured properties, pillars, company details, CTA
+products.html      All properties + SOHUM.agency, with category filters
+contact.html       Contact details + mailto-based contact form
+privacy.html       Privacy policy
+terms.html         Terms of use
+robots.txt         Crawler rules + sitemap pointer
+sitemap.xml        Page list for sjshahco.com
 assets/
-  styles.css       All styling
-  logo-mark.svg    Standalone pyramid mark (currentColor, scalable)
+  styles.css       Design system (dark minimal; tokens at the top of the file)
+  site.js          Mobile nav, scroll reveal, product filters, contact form
+  logo-mark.svg    Pyramid mark (black strokes; inverted with CSS on dark)
   favicon.svg      Browser-tab icon
+  og.png           1200x630 social share image
+  fonts/           Self-hosted Geist (SIL OFL)
+  shots/           Screenshots of each live property (WebP, 1200x750)
 render.yaml        Render.com static site config
 ```
 
 ## Run locally
-
-Open `index.html` directly in a browser, or serve the folder:
 
 ```bash
 python -m http.server 8000
@@ -30,23 +37,20 @@ Then visit http://localhost:8000
 
 ## Deploy on Render
 
-1. Push this repo to GitHub/GitLab.
-2. In Render: **New → Static Site**, connect the repo.
-3. Settings (Render also reads `render.yaml` automatically):
+1. Push this repo to GitHub.
+2. In Render: **New → Static Site**, connect the repo. Render also reads `render.yaml`.
    - **Build Command:** *(leave empty)*
    - **Publish Directory:** `.`
-4. Add your custom domain (e.g. `sjshahco.com`) under the site's **Settings → Custom Domains**.
-
-## Contact form
-
-The contact form uses a `mailto:` handler — on submit it opens the visitor's email
-client with the message pre-filled to **hello@sjshahco.com**. No backend required.
-To switch to a hosted form service (Formspree, Web3Forms) later, replace the
-`submit` handler in `contact.html`.
+3. Add `sjshahco.com` under **Settings → Custom Domains**.
 
 ## Editing content
 
-- **Product descriptions** live in `index.html` and `products.html`. Review them for
-  accuracy — copy should truthfully describe each property.
-- **Contact email** is `hello@sjshahco.com`, referenced in all three pages and the footer.
-- **Logo**: the mark is inline SVG (in each page's header/footer) and `assets/logo-mark.svg`.
+- **Property copy** (`products.html`, `index.html`) is taken from each live site's own
+  description. If a product changes, update the copy here too so it stays accurate.
+- **Screenshots** in `assets/shots/` are of each site's homepage at 1440x900. Retake and
+  re-export as WebP (about 1200x750) when a site's look changes.
+- **Header/footer** are repeated in every HTML file; edit all five when they change.
+- **Contact email** is `hello@sjshahco.com`, used across pages, the footer and the form.
+- **Contact form** opens the visitor's email client (`mailto:`). To use a hosted form
+  service instead, replace the submit handler in `assets/site.js`.
+- **Accent colour and surfaces** are CSS variables at the top of `assets/styles.css`.
