@@ -15,7 +15,7 @@ contact.html       Contact details + mailto-based contact form
 privacy.html       Privacy policy
 terms.html         Terms of use
 robots.txt         Crawler rules + sitemap pointer
-sitemap.xml        Page list for sjshahco.com
+sitemap.xml        Page list for sjshah.co
 assets/
   styles.css       Design system (dark minimal; tokens at the top of the file)
   site.js          Mobile nav, scroll reveal, product filters, contact form
@@ -41,7 +41,7 @@ Then visit http://localhost:8000
 2. In Render: **New → Static Site**, connect the repo. Render also reads `render.yaml`.
    - **Build Command:** *(leave empty)*
    - **Publish Directory:** `.`
-3. Add `sjshahco.com` under **Settings → Custom Domains**.
+3. Add `sjshah.co` under **Settings → Custom Domains**.
 
 ## Editing content
 

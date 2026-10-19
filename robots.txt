@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sjshahco.com/sitemap.xml
+Sitemap: https://sjshah.co/sitemap.xml
